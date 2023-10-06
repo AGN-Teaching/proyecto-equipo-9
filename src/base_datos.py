@@ -16,8 +16,9 @@ class BaseDatos:
             self.__unidades[no_eco] = unidad
             self.__count_no_eco_black += 1
     
-    def agregar_usuario(self, nombre, tdc, id_unico):
-        usuario = Usuario(nombre, tdc, id_unico)
+    def agregar_usuario(self, nombre, tdc):
+        usuario = Usuario(nombre, tdc)
+        id_unico= self.__count_id
         self.__usuarios[id_unico] = usuario
         self.__count_id += 1
 
