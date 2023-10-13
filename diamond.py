@@ -7,8 +7,8 @@ class Diamond(Unidad):
             eco_num (int): Número económico de la unidad.
         """
         super().__init__(eco_num) 
-        self.__tarifa_km = 1.0
-        self.__tarifa_min = 1.0
+        self.__tarifa_km = 2.0
+        self.__tarifa_min = 2.0
 
     def get_tarifa_km(self):
         """
