@@ -296,6 +296,8 @@ Un manejo de excepciones sólido es especialmente valioso en proyectos críticos
   - La implementacion de excepciones con mensajes descripctivos facilitan la depuración y la identificacion de problemas. Estos mensajes informativos permitieron el proceso de desarrollo e implementación  entender y solucionar problemas de una manera sencilla
   - El manejo de excepciones permite controlar el flujo del programa pudiendo tomar decisiones basadas en el tipo de excepcion por ejemplo en los metodos que permiten cargar la base de datos, si se genera una excepcion donde no encuentre los archivos simplemente se inicia el sistema desde cero en vez de cerrarse inesperadamente
 
+En conjunto, estos elementos subrayan la importancia de un enfoque orientado a objetos en la resolución de problemáticas específicas y cómo un diseño bien estructurado y la implementación de técnicas como el manejo de datos, la serialización de objetos y el manejo de excepciones pueden contribuir significativamente al éxito de un proyecto.
+
 ## Ejemplo de uso
 
 Este repositorio cuenta con un script para probar la funcionalidad del sistema
@@ -316,7 +318,7 @@ Para usar el sistema solo es necesario correr el script
 - Iniciar el script de ejemplo de la aplicacion con:
 
 ```shell
-py scrpt-menu-ejemplo.py
+py script_ejemplo_aplicacion.py
 ```
 
 <sub>Para llamar a python en la consola puede variar dependiendo el sistema.(python3, python)</sub>
