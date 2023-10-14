@@ -5,6 +5,8 @@
 
 ## Diagrama UML
 
+![Diagrama_UML](./img/uml-proyecto.drawio.png)
+
 ## Analisis del Problema
 
 ### Puntos Importantes del Antecedente
@@ -30,7 +32,7 @@
 
 ### Abstraccion
 
-- En el mundo fisico* cuando se trata de un sistema de taxis nos encontramos con un sistema que lo maneje que fue descrito en el antecedente, además el sistema interactúa con las unidades y los usuarios.
+- En el mundo fisico cuando se trata de un sistema de taxis nos encontramos con un sistema que lo maneje el cual fue descrito en el antecedente, además el sistema interactúa con las unidades y los usuarios.
 
 - En el mundo real es usual encontrar en aplicaciones dedicadas a dar servicio de taxi con la posibilidad de escoger entre diferentes tipos, las características que definen a las diferentes unidades de estas aplicaciones son en su precio que dependen de la comodidad de cada unidad. Para nuestro problema se identifican tres unidades diferentes con esta característica dependiente del precio.
 
@@ -79,7 +81,6 @@ Teniendo en cuenta los puntos anteriores se propone el siguiente diseno
   - Siguiendo el diseño es conveniente tratar esta relación de sistema taxis hacia el menú como una composición ya que es una forma en la que se puedan acceder a las funcionalidades del sistema de manera interactiva. Implicando que no puede existir un menú sin el sistema.
 
 ## Descripcion de clases
-
 
 ### Menu
 
@@ -260,8 +261,62 @@ Estas clases representan diferentes tipos de unidades de taxi, cada una con sus 
 
 ### Karla
 
+- En el análisis del problema presentado, se observa la necesidad de desarrollar un modelo orientado a objetos para abordar eficazmente las complejidades de un sistema de taxis. Se identifican tres tipos de unidades, cada una con sus características específicas, y se establece un sistema de tarifas basado en la comodidad ofrecida por estas unidades. Esto refleja una comprensión profunda de la problemática particular a la que se enfrenta el sistema de taxis, ya que reconoce la diversidad de opciones que los usuarios pueden elegir.
+
+- Además, se destacan restricciones importantes, como la necesidad de que los usuarios estén registrados en el sistema antes de realizar reservaciones, lo que contribuye a garantizar la seguridad y la calidad del servicio. Se introduce la noción de promociones y descuentos para usuarios frecuentes, lo que puede incentivar a los clientes a utilizar el servicio de manera recurrente.
+
+- El diseño propuesto se basa en principios de programación orientada a objetos sólidos. Se sugiere utilizar la herencia para crear subclases de "Unidad", lo que permite una representación eficiente de las diferentes unidades (express, black y diamond) con atributos comunes y específicos. Esta abstracción permite una gestión unificada de las unidades y facilita futuras expansiones o modificaciones en el sistema.
+
+- En cuanto a la relación entre clases, se utiliza la agregación para conectar las subclases de "Unidad" con el sistema de taxis. Esto refleja cómo el sistema mantiene el control y la gestión de las diferentes unidades disponibles. Del mismo modo, la relación entre "Usuario" y el sistema de taxis se basa en la agregación, lo que significa que el sistema tiene un control completo sobre las instancias de usuario, lo que es esencial para el seguimiento y la gestión de los clientes.
+
+- Por último, el menú interactivo se conecta al sistema de taxis mediante una relación de composición, lo que implica que el menú es una parte integral del sistema y es fundamental para la interacción con los usuarios. Esto asegura que no pueda existir un menú independiente del sistema, lo que garantiza una experiencia de usuario coherente y eficaz.
+
+- En resumen, el diseño propuesto refleja una sólida comprensión de las interacciones y relaciones necesarias para gestionar eficazmente un sistema de taxis. A través de la programación orientada a objetos y la aplicación de principios como la herencia, la agregación y la composición, se logra una estructura que brinda orden, eficiencia y seguridad en la operación del sistema.
+
 ### Gabriel
+
+- La realización de este proyecto requirió de aplicar todos los conocimientos adquiridos a lo largo de la UEA e incluso complementar con lo aprendido en UEAS pasadas, principalmente requerimos de utilizar la abstracción para poder establecer nuestro sistema de taxis, ideando qué herramientas de el mundo real necesitábamos traspasar a código e implementarlo para que actuasen en conjunto; el desarrollo de las clases requirió de idear principalmente las relaciones que tendrían entre ellas así como los diferentes métodos que necesitábamos implementar en cada una, fue importante considerar los tipos de relaciones existentes pues el menú por ejemplo tiene una relación de composición con la clase sistema debido a que es necesario inicializar una instancia de tipo Sistema para que la clase Menu funcione de manera correcta.
+
+- Requerimos un mayor esfuerzo al momento de realizar esta práctica debido a las especificaciones del problema; los conceptos que fueron más útiles en este caso para la implementación fue la herencia y el polimorfismo en mayor medida pues por ejemplo para los diferentes tipos de unidades necesitabamos que un mismo metodo pudiese realizar diferentes procesos en base al contexto que lo necesitáramos. Podemos decir que el implementar este paradigma de programación facilita el manejo de el programa al tener clases en diferentes scripts pues al solucionar un error por ejemplo es más fácil manejar un código compacto que tener que modificar todo de manera lineal.
 
 ### Ivan
 
+- Sobre el manejo de datos
+Durante el proyecto se demuestra la importancia del manejo efectivo  de datos de entrada y salida, en la programación de sistemas tal como un sistema de taxis un buen manejo de información se traduce en una aplicación eficiente:
+
+  - La interacción con el usuario se ha implementado a través de un menú que ofrece opciones claras por lo que facilita la comunicación entre el sistema y usuarios
+  - La gestión de rutas y reservaciones implica un flujo de datos importante a través de los objetos donde el sistema ha demostrado ser capaz de gestionar esta información brindando una ejecución confiable
+- Sobre la serializacion de objetos
+La serializacion de objetos ha demostrado ser una herramienta esencial para el desarrollo de este proyecto debido a lo siguiente:
+  - Dicha serializacion ha permitido guardar de manera eficiente y segura las bases de datos ocupadas en el sistema. Lo cual es crucial para mantener la persistencia de datos en diferentes ejecuciones del programa
+  - La capacidad de cargar datos serializados facilita la recuperacion de informacion manteniendo integridad en las bases de datos
+- Sobre el manejo de excepciones
+Un manejo de excepciones sólido es especialmente valioso en proyectos críticos, como este, donde los errores pueden tener un impacto directo en la experiencia del usuario y en la operación del sistema. Además, facilita la detección y corrección de problemas durante el desarrollo y el mantenimiento continuo de la aplicación.
+  - El manejo de excepciones mejora la robustez del sistema al permitir que el programa maneje errores de manera controlada en lugar de bloquearse o producir resultados inesperados.
+  - La implementacion de excepciones con mensajes descripctivos facilitan la depuración y la identificacion de problemas. Estos mensajes informativos permitieron el proceso de desarrollo e implementación  entender y solucionar problemas de una manera sencilla
+  - El manejo de excepciones permite controlar el flujo del programa pudiendo tomar decisiones basadas en el tipo de excepcion por ejemplo en los metodos que permiten cargar la base de datos, si se genera una excepcion donde no encuentre los archivos simplemente se inicia el sistema desde cero en vez de cerrarse inesperadamente
+
 ## Ejemplo de uso
+
+Este repositorio cuenta con un script para probar la funcionalidad del sistema
+
+- Este script se encuentra identificado como: `script_ejemplo_aplicacion.py`
+
+El sistema tiene una implementacion donde carga la base de datos al iniciar el sistema, si no existen los archivos correspondientes inicia el sistema con inventarios vacios.
+
+Por motivos de demostracion el repositorio cuenta con estos archivos con informacion ya registrada
+
+- `database_unidades`
+- `database_usuarios`
+
+Los documentos cargan algunas unidades de prueba junto con un usuario dado de alta identificada como _Andrea_
+
+Para usar el sistema solo es necesario correr el script
+
+- Iniciar el script de ejemplo de la aplicacion con:
+
+```shell
+py scrpt-menu-ejemplo.py
+```
+
+<sub>Para llamar a python en la consola puede variar dependiendo el sistema.(python3, python)</sub>
