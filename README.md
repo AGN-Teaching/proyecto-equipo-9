@@ -257,6 +257,61 @@ Al igual que las clases "Express" y "Black," la clase "Diamond" hereda de la cla
 
 Estas clases representan diferentes tipos de unidades de taxi, cada una con sus propias tarifas específicas por kilómetro y minuto.
 
+## Manejo de errores
+
+Para el manejo de errores, fue suguerente tratar principalmente dos tipos de excepciones, las que puedan surgir durante la inicializacion del programa o durante algun procecamiento de datos.
+
+Para encontrar dichas excepciones fue de gran apoyo por una parte probar el programa varias veces durante el desarrollo y on ayuda de la herramienta de debug que incluye vscode.
+
+### Durante la inicializacion
+
+En esta etapa en nuestro programa implementamos la carga automatica de los archivos de bases de datos, para esto teniamos que manejar la excepcion `FileNotFoundError`, en escencia, si no se encuentran los archivos a cargar que inicie todo el sistema _default_ o de fabrica. Gracias a este acercamiento se pudo implementar con exito la carga automatica de base de datos si es que existe.
+
+Ejemplo de manejo de `FileNotFoundError`
+
+```python
+def load_database_usuarios(self):
+    try:
+        with open('database_usuarios', "rb") as file:
+            self.__usuarios = load(file)
+    except FileNotFoundError:
+        self.__usuarios = {}
+        print('Base de datos de Usuarios no encontrada, se ha inicializado con valores vacíos.')
+    else:
+        print('Base de datos de usuarios cargado con éxito!')
+```
+
+### Durante el procesamiento de datos
+
+En esta etapa se encontraron algunas excepciones relacionadas a listas y diccionarios
+
+Para las listas por ejemplo podriamos recibir en un metodo un numero que representa la posicion de un elemento en una lista y si por alguna razon estaba fuera de rango entonces solo se manda un aviso
+
+Ejemplo de manejo de error `IndexError`
+
+```python
+def delete_reservacion(self, reservacion):
+    try:
+        self.__reservaciones.pop(int(reservacion))
+    except IndexError:
+        print('No hay reservaciones por eliminar o ingreso un número fuera de rango')
+```
+
+Para la segunda forma durante la etapa de procesamiento un metodo que recibia un dato este no lo encontraba en un diccionario
+
+Ejemplo de manejo de error `KeyError`
+
+```python
+def sacar_unidad_taller(self, no_eco):
+    try:
+        unidad = self.__unidades[no_eco]
+        unidad.mantenimiento_finalizado()
+    except KeyError:
+        pass
+```
+
+Realmente no hay errores encontrados que fueran relevantes ya que nos aseguramos de que al ingresar datos se verificaren de acuerdo al dato que queremos recibir (Ej. Para las tarjetas verificamos que ingrese los digitos y solo digitos para una tarjeta) esta implementacion de verificaion de datos es muy util al momento de evitar excepciones inesperadas y que durante el desarrollo no se manejen tantas excepciones
+
 ## Conclusiones
 
 ### Karla
